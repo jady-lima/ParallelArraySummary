@@ -3,6 +3,7 @@ import java.util.Random;
 
 public class ElementsArray {
     Random random = new Random();
+    Element thisElement = new Element(0, 0, 0);
     public static int elementId = 1;
     ArrayList<Element> elementsArrayList;
     int grupo = 0;
@@ -13,11 +14,12 @@ public class ElementsArray {
         elementsArrayList = new ArrayList<Element>();
     }
 
-    public void elementAdd()
+    public synchronized void elementAdd()
     {
-        total = random.nextDouble(10) + 1;
+        total = random.nextDouble(10);
         grupo = random.nextInt(5) + 1;
-        elementsArrayList.add(new Element(elementId, total, grupo));
+        thisElement = new Element(elementId, total, grupo);
+        elementsArrayList.add(thisElement);
         elementId++;
     }
 
@@ -32,5 +34,22 @@ public class ElementsArray {
         {
             elementsArrayList.get(i).printElement();
         }
+    }
+
+    public Element returnElement(int elementId)
+    {
+        for(Element element: elementsArrayList)
+        {
+            if (element.getElementId() == elementId)
+            {
+                return element;
+            }
+        }
+        return null;
+    }
+
+    public Element returnThisElement()
+    {
+        return thisElement;
     }
 }
