@@ -7,7 +7,7 @@ public class Main {
 
         int n = 0, t = 0;
 
-
+        /**
         System.out.println("N: ");
         n = scanner.nextInt();
 
@@ -18,6 +18,25 @@ public class Main {
 
         elementsArray.printElements();
 
-               
+        */
+
+        System.out.println("T: ");
+        t = scanner.nextInt();
+
+        Thread[] thread = new ElementsThreads[t];
+        for (int i = 0; i < t; i++)
+        {
+            thread[i] = new ElementsThreads(i);
+            thread[i].start();
+        }
+
+        for (int i = 0; i < t; i++)
+        {
+            try{
+                thread[i].join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
