@@ -20,7 +20,7 @@ public class Main {
 
         for (int i = 0; i < t; i++)
         {
-            thread[i] = new ElementsThreads(i, part, numberElements);
+            thread[i] = new ElementsThreads(i, part);
             thread[i].start();
         }
 
@@ -32,8 +32,6 @@ public class Main {
                 e.printStackTrace();
             }
         }
-
-
 
     }
 }
