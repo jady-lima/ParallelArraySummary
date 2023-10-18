@@ -2,25 +2,41 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class ElementsArray {
-    Random random = new Random();
-    Element thisElement = new Element(0, 0, 0);
-    public static int elementId = 1;
-    ArrayList<Element> elementsArrayList;
-    int grupo = 0;
-    double total = 0;
+    private static ElementsArray instance;
+    private static int elementId = 1;
+    private Random random = new Random();
+    private ArrayList<Element> elementsArrayList;
+    private int grupo = 0;
+    private double total = 0;
+
+    public static ElementsArray getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new ElementsArray();
+        }
+        return instance;
+    }
 
     public ElementsArray()
     {
         elementsArrayList = new ArrayList<Element>();
     }
 
-    public synchronized void elementAdd()
+    public ArrayList<Element> returnArray()
     {
-        total = random.nextDouble(10);
-        grupo = random.nextInt(5) + 1;
-        thisElement = new Element(elementId, total, grupo);
-        elementsArrayList.add(thisElement);
-        elementId++;
+        return elementsArrayList;
+    }
+
+    public void elementAdd(int N)
+    {
+        for (int i = 0; i < N; i++) {
+            total = random.nextDouble(10);
+            grupo = random.nextInt(5) + 1;
+            Element thisElement = new Element(elementId, total, grupo);
+            elementsArrayList.add(thisElement);
+            elementId++;
+        }
     }
 
     public int elementsArrayListSize()
@@ -36,20 +52,4 @@ public class ElementsArray {
         }
     }
 
-    public Element returnElement(int elementId)
-    {
-        for(Element element: elementsArrayList)
-        {
-            if (element.getElementId() == elementId)
-            {
-                return element;
-            }
-        }
-        return null;
-    }
-
-    public Element returnThisElement()
-    {
-        return thisElement;
-    }
 }
