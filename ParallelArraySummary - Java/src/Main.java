@@ -3,13 +3,15 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         ElementsArray elementsArray = ElementsArray.getInstance();
         Sum sum = Sum.getInstance();
+
         ArrayList<Integer> floor = new ArrayList<Integer>();
         ArrayList<Integer> ceiling = new ArrayList<Integer>();
-        Scanner scanner = new Scanner(System.in);
-
         int n = 0, t = 0, part = 0, numberElements = 0;
+
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("N: ");
         n = scanner.nextInt();

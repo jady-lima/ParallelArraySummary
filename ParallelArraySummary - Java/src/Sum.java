@@ -27,6 +27,31 @@ public class Sum {
                 "\nSubtotal 5: " + subTotal5 );
     }
 
+    public void Total(Element element)
+    {
+        setTotalSum(getTotalSum() + element.getTotalElement());
+
+        switch (element.getGroup()){
+            case 1:
+                setSubTotal1(getSubTotal1() + element.getTotalElement());
+                break;
+            case 2:
+                setSubTotal2(getSubTotal2() + element.getTotalElement());
+                break;
+            case 3:
+                setSubTotal3(getSubTotal3() + element.getTotalElement());
+                break;
+            case 4:
+                setSubTotal4(getSubTotal4() + element.getTotalElement());
+                break;
+            case 5:
+                setSubTotal5(getSubTotal5() + element.getTotalElement());
+                break;
+            default:
+                System.out.println("Default");
+        }
+    }
+
     public double getTotalSum()
     {
         return totalSum;

@@ -24,33 +24,8 @@ public class ElementsThreads extends Thread{
             synchronized (elementsArray) {
                 for (int i = (threadId * part); i < ((threadId + 1) * part); i++)
                 {
-                    sum.setTotalSum(sum.getTotalSum() + elementsArray.returnArray().get(i).getTotalElement());
-
-                    switch (elementsArray.returnArray().get(i).getGrupo()){
-                        case 1:
-                            sum.setSubTotal1(sum.getSubTotal1() + elementsArray.returnArray().get(i).getTotalElement());
-                            break;
-                        case 2:
-                            sum.setSubTotal2(sum.getSubTotal2() + elementsArray.returnArray().get(i).getTotalElement());
-                            break;
-                        case 3:
-                            sum.setSubTotal3(sum.getSubTotal3() + elementsArray.returnArray().get(i).getTotalElement());
-                            break;
-                        case 4:
-                            sum.setSubTotal4(sum.getSubTotal4() + elementsArray.returnArray().get(i).getTotalElement());
-                            break;
-                        case 5:
-                            sum.setSubTotal5(sum.getSubTotal5() + elementsArray.returnArray().get(i).getTotalElement());
-                            break;
-                        default:
-                            System.out.println("Default");
-                    }
-
-                    if (elementsArray.returnArray().get(i).getTotalElement() < 5) {
-                        floor.add(elementsArray.returnArray().get(i).getElementId());
-                    } else {
-                        ceiling.add(elementsArray.returnArray().get(i).getElementId());
-                    }
+                    sum.Total(elementsArray.returnArray().get(i));
+                    splitElements(elementsArray.returnArray().get(i));
                 }
             }
 
@@ -58,6 +33,14 @@ public class ElementsThreads extends Thread{
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
 
+    public void splitElements(Element element)
+    {
+        if (element.getTotalElement() < 5) {
+            floor.add(element.getElementId());
+        } else {
+            ceiling.add(element.getElementId());
+        }
     }
 }

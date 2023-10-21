@@ -1,13 +1,13 @@
 public class Element {
     private int elementId;
     private double totalElement;
-    private int grupo;
+    private int group;
 
-    public Element(int elementId, double totalElement, int grupo)
+    public Element(int elementId, double totalElement, int group)
     {
         this.elementId = elementId;
         this.totalElement = totalElement;
-        this.grupo = grupo;
+        this.group = group;
     }
 
     public int getElementId()
@@ -30,21 +30,21 @@ public class Element {
         this.totalElement = totalElement;
     }
 
-    public int getGrupo()
+    public int getGroup()
     {
-        return grupo;
+        return group;
     }
 
-    public void setGrupo(int grupo)
+    public void setGroup(int group)
     {
-        this.grupo = grupo;
+        this.group = group;
     }
 
     public void printElement()
     {
         System.out.println("ID: " + getElementId() +
                 "\nTotal: " + getTotalElement() +
-                "\nGrupo: " + getGrupo());
+                "\nGrupo: " + getGroup());
         System.out.println("-------------------------------------------------");
     }
 }
