@@ -24,6 +24,8 @@ public class Main {
         elementsArray.elementAdd(numberElements);
         Thread[] thread = new ElementsThreads[t];
 
+        long startTime = System.nanoTime();
+
         for (int i = 0; i < t; i++)
         {
             thread[i] = new ElementsThreads(i, part, sum, floor, ceiling);
@@ -39,9 +41,14 @@ public class Main {
             }
         }
 
+        long endTime = System.nanoTime();
+        long time = endTime - startTime;
+        double finalTime = (double) time / 1000000.0;
+
         elementsArray.printElements();
         sum.printTotais();
-        System.out.println(floor);
-        System.out.println(ceiling);
+        System.out.println("Número de elementos cujo total é menor que 5: " + floor.size());
+        System.out.println("Número de elementos cujo total é maior ou igual a 5: " + ceiling.size());
+        System.out.println("Time: " + finalTime);
     }
 }

@@ -6,7 +6,6 @@ public class ElementsThreads extends Thread{
     private ElementsArray elementsArray = ElementsArray.getInstance();
     private Sum sum = Sum.getInstance();
     private int threadId, part;
-    private static double totalSum = 0, subTotal1 = 0, subTotal2 = 0, subTotal3 = 0, subTotal4 = 0, subTotal5 = 0;
 
     public ElementsThreads(int threadId, int part, Sum sum, ArrayList<Integer> floor, ArrayList<Integer> ceiling)
     {

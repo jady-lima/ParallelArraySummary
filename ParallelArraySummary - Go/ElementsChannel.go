@@ -5,6 +5,7 @@ import (
 	"math"
 	"math/rand"
 	"sync"
+	"time"
 )
 
 var ElementId int = 1
@@ -106,6 +107,7 @@ func main() {
 	waitGroup.Add(1)
 	go addElements(numberElements, channel, &waitGroup)
 
+	startTime := time.Now()
 	for i := 0; i < T; i++ {
 		waitGroup.Add(1)
 		go removeElements(part, channel, &waitGroup, i)
@@ -113,7 +115,10 @@ func main() {
 
 	waitGroup.Wait()
 
+	endTime := time.Now()
+	time := endTime.Sub(startTime)
 	printResults()
-	fmt.Println(less)
-	fmt.Println(greater)
+	fmt.Println(len(less))
+	fmt.Println(len(greater))
+	fmt.Println("Time: ", time)
 }

@@ -6,8 +6,6 @@ public class ElementsArray {
     private static int elementId = 1;
     private Random random = new Random();
     private ArrayList<Element> elementsArrayList;
-    private int grupo = 0;
-    private double total = 0;
 
     public static ElementsArray getInstance()
     {
@@ -31,8 +29,8 @@ public class ElementsArray {
     public void elementAdd(int N)
     {
         for (int i = 0; i < N; i++) {
-            total = random.nextDouble(10);
-            grupo = random.nextInt(5) + 1;
+            double total = random.nextDouble(10);
+            int grupo = random.nextInt(5) + 1;
             Element thisElement = new Element(elementId, total, grupo);
             elementsArrayList.add(thisElement);
             elementId++;
