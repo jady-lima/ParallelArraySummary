@@ -43,7 +43,7 @@ public class Main {
 
         long endTime = System.nanoTime();
         long time = endTime - startTime;
-        double finalTime = (double) time / 1000000.0;
+        double finalTime = (double) time / 1000000000.0;
 
         elementsArray.printElements();
         sum.printTotais();
