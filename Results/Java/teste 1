@@ -1,0 +1,10 @@
+1. Somatório Total: 501212.2559082738
+2. Somatório subtotais:
+Subtotal 1: 99678.06128906283
+Subtotal 2: 101501.74795815542
+Subtotal 3: 100685.3250515796
+Subtotal 4: 99817.79278557404
+Subtotal 5: 99529.3288238966
+Número de elementos cujo total é menor que 5: 49760
+Número de elementos cujo total é maior ou igual a 5: 50240
+Time: 0.5385506
